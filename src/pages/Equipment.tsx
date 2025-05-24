@@ -1,13 +1,13 @@
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { StatCard } from "@/components/StatCard"
+import { AddEquipmentDialog } from "@/components/AddEquipmentDialog"
 import { Package, Wrench, AlertTriangle, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Button } from "@/components/ui/button"
 
 const mockEquipment = [
   {
@@ -72,10 +72,7 @@ const Equipment = () => {
                   placeholder="Search equipment..." 
                   className="w-64"
                 />
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                  <Package className="h-4 w-4 mr-2" />
-                  Add Equipment
-                </Button>
+                <AddEquipmentDialog />
               </div>
             </div>
           </div>

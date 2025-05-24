@@ -1,12 +1,12 @@
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { MissionCard } from "@/components/MissionCard"
 import { StatCard } from "@/components/StatCard"
+import { CreateMissionDialog } from "@/components/CreateMissionDialog"
 import { MapPin, Calendar, Users, Target } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 
 const mockMissions = [
   {
@@ -97,10 +97,7 @@ const Missions = () => {
                   placeholder="Search missions..." 
                   className="w-64"
                 />
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                  <Target className="h-4 w-4 mr-2" />
-                  New Mission
-                </Button>
+                <CreateMissionDialog />
               </div>
             </div>
           </div>

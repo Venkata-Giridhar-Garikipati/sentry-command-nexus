@@ -3,8 +3,8 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { PersonnelTable } from "@/components/PersonnelTable"
 import { StatCard } from "@/components/StatCard"
+import { AddPersonnelDialog } from "@/components/AddPersonnelDialog"
 import { Users, UserPlus, UserCheck, UserX } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -28,10 +28,7 @@ const Personnel = () => {
                   placeholder="Search personnel..." 
                   className="w-64"
                 />
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                  <UserPlus className="h-4 w-4 mr-2" />
-                  Add Personnel
-                </Button>
+                <AddPersonnelDialog />
               </div>
             </div>
           </div>

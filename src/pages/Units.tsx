@@ -1,12 +1,12 @@
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { StatCard } from "@/components/StatCard"
+import { CreateUnitDialog } from "@/components/CreateUnitDialog"
 import { Shield, Users, MapPin, Award } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
 const mockUnits = [
   {
@@ -61,10 +61,7 @@ const Units = () => {
                   placeholder="Search units..." 
                   className="w-64"
                 />
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                  <Shield className="h-4 w-4 mr-2" />
-                  Create Unit
-                </Button>
+                <CreateUnitDialog />
               </div>
             </div>
           </div>
