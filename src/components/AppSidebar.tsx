@@ -1,5 +1,6 @@
 
 import { Shield, Users, Package, MapPin, BarChart3, Settings, Command } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
 import {
   Sidebar,
   SidebarContent,
@@ -47,6 +48,8 @@ const navigationItems = [
 ]
 
 export function AppSidebar() {
+  const location = useLocation()
+
   return (
     <Sidebar className="border-r border-slate-200 bg-slate-900">
       <SidebarHeader className="border-b border-slate-700 p-4">
@@ -70,12 +73,14 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     asChild 
-                    className="text-slate-300 hover:bg-slate-800 hover:text-white data-[state=open]:bg-slate-800"
+                    className={`text-slate-300 hover:bg-slate-800 hover:text-white data-[state=open]:bg-slate-800 ${
+                      location.pathname === item.url ? 'bg-slate-800 text-white' : ''
+                    }`}
                   >
-                    <a href={item.url} className="flex items-center space-x-3 px-4 py-2">
+                    <Link to={item.url} className="flex items-center space-x-3 px-4 py-2">
                       <item.icon className="h-5 w-5" />
                       <span>{item.title}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
