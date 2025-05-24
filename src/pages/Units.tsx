@@ -1,7 +1,10 @@
+
+import { useState } from "react"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { StatCard } from "@/components/StatCard"
 import { CreateUnitDialog } from "@/components/CreateUnitDialog"
+import { UnitDetailsDialog } from "@/components/UnitDetailsDialog"
 import { Shield, Users, MapPin, Award } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -42,6 +45,14 @@ const mockUnits = [
 ]
 
 const Units = () => {
+  const [selectedUnit, setSelectedUnit] = useState<typeof mockUnits[0] | null>(null)
+  const [detailsOpen, setDetailsOpen] = useState(false)
+
+  const handleViewDetails = (unit: typeof mockUnits[0]) => {
+    setSelectedUnit(unit)
+    setDetailsOpen(true)
+  }
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-slate-50">
@@ -150,7 +161,12 @@ const Units = () => {
                     </div>
                     
                     <div className="pt-2">
-                      <Button variant="outline" size="sm" className="w-full">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                        onClick={() => handleViewDetails(unit)}
+                      >
                         View Details
                       </Button>
                     </div>
@@ -160,6 +176,12 @@ const Units = () => {
             </div>
           </div>
         </main>
+
+        <UnitDetailsDialog 
+          unit={selectedUnit}
+          open={detailsOpen}
+          onOpenChange={setDetailsOpen}
+        />
       </div>
     </SidebarProvider>
   );
